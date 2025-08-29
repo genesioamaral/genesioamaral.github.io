@@ -10,6 +10,10 @@ font-weight: 400italic;
 -------------------------------------*/
 
 /* Begin general body settings */
+#meu-link {
+	display: none; /* link oculto */
+
+}
 body {	 
 	font-family: "Arial";
 	font-weight: 400;
