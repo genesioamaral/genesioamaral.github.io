@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lentes da Ana - Fotografia profissional que transforma momentos especiais em memórias eternas. Ensaios femininos, casais, gestantes, família e mais. Solicite seu orçamento pelo WhatsApp.">
+  <meta name="keywords" content="fotografia profissional, ensaio fotográfico, ensaio feminino, ensaio de casal, ensaio gestante, fotógrafa, memórias, Lentes da Ana">
+  <meta property="og:title" content="Lentes da Ana | Transformando Momentos em Memórias Eternas">
+  <meta property="og:description" content="Ensaios fotográficos profissionais. Cada foto conta uma história. Solicite seu orçamento.">
+  <meta property="og:type" content="website">
+  <title>Lentes da Ana | Transformando Momentos em Memórias Eternas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --branco: #FFFDF9;
+      --bege: #F5F0EB;
+      --bege-escuro: #E8DDD3;
+      --nude: #D4C5B5;
+      --preto: #1A1A1A;
+      --preto-suave: #2D2D2D;
+      --cinza: #6B6B6B;
+      --cinza-claro: #9A9A9A;
+      --dourado: #C5A47E;
+      --dourado-claro: #D4BA9A;
+      --rose: #C4A4A4;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--preto);
+      background: var(--branco);
+      line-height: 1.7;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    button { cursor: pointer; border: none; font-family: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .fade-in.visible { opacity: 1; }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 12px 0;
+      box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--branco);
+      transition: color 0.4s ease;
+    }
+    .navbar.scrolled .navbar-logo { color: var(--preto); }
+    .navbar-logo span { color: var(--dourado); }
+    .navbar-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .navbar-links a {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--branco);
+      font-weight: 400;
+      position: relative;
+    }
+    .navbar.scrolled .navbar-links a { color: var(--preto-suave); }
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--dourado);
+      transition: width 0.3s ease;
+    }
+    .navbar-links a:hover::after { width: 100%; }
+    .navbar-cta {
+      font-size: 0.75rem !important;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border: 1px solid var(--dourado) !important;
+      color: var(--dourado) !important;
+      transition: all 0.3s ease !important;
+    }
+    .navbar.scrolled .navbar-cta {
+      background: var(--dourado) !important;
+      color: var(--branco) !important;
+    }
+    .navbar-cta:hover {
+      background: var(--dourado) !important;
+      color: var(--branco) !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 8px;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 1.5px;
+      background: var(--branco);
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled .hamburger span { background: var(--preto); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2D2018 0%, #1A1A1A 50%, #0D0D0D 100%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A47E' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 850px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      border: 1px solid rgba(197, 164, 126, 0.3);
+      padding: 8px 24px;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--branco);
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--dourado);
+      font-weight: 400;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--dourado);
+      color: var(--branco);
+      padding: 16px 40px;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--preto);
+      transform: translateX(-101%);
+      transition: transform 0.4s ease;
+    }
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--branco);
+      padding: 16px 40px;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover {
+      border-color: var(--dourado);
+      color: var(--dourado);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: float 3s ease-in-out infinite;
+    }
+    .hero-scroll .line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--dourado), transparent);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 100px 0; }
+    .section-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--preto);
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--dourado);
+    }
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--cinza);
+      max-width: 550px;
+      line-height: 1.9;
+    }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header .section-desc { margin: 0 auto; }
+
+    /* ===== EMOTIONAL CONNECTION ===== */
+    .emotional { background: var(--bege); }
+    .emotional-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .emotional-text .section-desc { margin-bottom: 32px; }
+    .emotional-features {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .emotional-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .emotional-feature .icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border: 1px solid var(--dourado);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .emotional-feature h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .emotional-feature p {
+      font-size: 0.85rem;
+      color: var(--cinza);
+      line-height: 1.7;
+    }
+    .emotional-visual {
+      position: relative;
+    }
+    .emotional-img-main {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      filter: grayscale(20%);
+    }
+    .emotional-img-overlay {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 55%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 8px solid var(--bege);
+      filter: grayscale(10%);
+    }
+
+    /* ===== SERVICES ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--branco);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 40px 32px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--dourado);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .service-card .for-who {
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--cinza);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .service-link {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--preto);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--nude);
+      padding-bottom: 4px;
+    }
+    .service-link:hover { border-color: var(--dourado); color: var(--dourado); }
+
+    /* ===== WHY CHOOSE ===== */
+    .why { background: var(--preto); color: var(--branco); }
+    .why .section-title { color: var(--branco); }
+    .why .section-desc { color: rgba(255,255,255,0.6); }
+    .why .section-badge { color: var(--dourado-claro); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin-top: 64px;
+    }
+    .why-item {
+      text-align: center;
+      padding: 40px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+    .why-item:hover {
+      border-color: rgba(197, 164, 126, 0.3);
+      background: rgba(255,255,255,0.02);
+    }
+    .why-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--dourado);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .why-item h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .why-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio { background: var(--bege); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 300px);
+      gap: 16px;
+    }
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .portfolio-item:first-child {
+      grid-row: span 2;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: grayscale(30%);
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,26,0.7) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-overlay span {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--branco);
+      font-style: italic;
+    }
+    .portfolio-quote {
+      text-align: center;
+      margin-top: 48px;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--cinza);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+    .testimonial-card {
+      background: var(--branco);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 40px;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: var(--dourado);
+      opacity: 0.2;
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      line-height: 1;
+    }
+    .testimonial-stars {
+      color: var(--dourado);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--cinza);
+      line-height: 1.9;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bege);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--dourado);
+    }
+    .testimonial-name {
+      font-weight: 500;
+      font-size: 0.88rem;
+    }
+    .testimonial-service {
+      font-size: 0.75rem;
+      color: var(--cinza-claro);
+      letter-spacing: 1px;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how { background: var(--branco); }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 12.5%;
+      width: 75%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--nude), transparent);
+    }
+    .how-step {
+      text-align: center;
+      position: relative;
+    }
+    .how-step-number {
+      width: 80px;
+      height: 80px;
+      border: 1px solid var(--nude);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      background: var(--branco);
+      position: relative;
+      z-index: 1;
+    }
+    .how-step-number span {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--dourado);
+      font-weight: 300;
+    }
+    .how-step h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .how-step p {
+      font-size: 0.82rem;
+      color: var(--cinza);
+      line-height: 1.7;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      position: relative;
+      padding: 120px 0;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2D2018 0%, #1A1A1A 100%);
+    }
+    .cta-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C5A47E' fill-opacity='0.03'%3E%3Cpath d='M20 20h20v20H20z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .cta-content .section-badge { color: var(--dourado-claro); }
+    .cta-content .section-title {
+      color: var(--branco);
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+    .cta-content .section-desc {
+      color: rgba(255,255,255,0.6);
+      margin: 0 auto 40px;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--dourado);
+      color: var(--branco);
+      padding: 18px 48px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: all 0.4s ease;
+    }
+    .cta-btn:hover {
+      background: var(--branco);
+      color: var(--preto);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    /* ===== FAQ ===== */
+    .faq { background: var(--bege); }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--preto);
+      text-align: left;
+    }
+    .faq-question .faq-icon {
+      font-size: 1.4rem;
+      color: var(--dourado);
+      transition: transform 0.3s ease;
+      min-width: 24px;
+      text-align: center;
+    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-bottom: 24px;
+    }
+    .faq-answer p {
+      font-size: 0.88rem;
+      color: var(--cinza);
+      line-height: 1.8;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--preto);
+      color: rgba(255,255,255,0.5);
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .navbar-logo {
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 280px;
+    }
+    .footer h5 {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--branco);
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.3s ease;
+    }
+    .footer ul a:hover { color: var(--dourado); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      transition: all 0.3s ease;
+    }
+    .footer-social a:hover {
+      border-color: var(--dourado);
+      color: var(--dourado);
+    }
+
+    /* ===== WHATSAPP FLOATING ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      animation: pulse-whatsapp 2s infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 32px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+    @keyframes pulse-whatsapp {
+      0% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 4px 32px rgba(37, 211, 102, 0.6); }
+      100% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4); }
+    }
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 72px;
+      background: var(--branco);
+      color: var(--preto);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,26,0.97);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .mobile-menu.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--branco);
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      color: var(--branco);
+      font-size: 2rem;
+      font-weight: 300;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .emotional-grid { grid-template-columns: 1fr; gap: 48px; }
+      .emotional-visual { max-width: 500px; margin: 0 auto; }
+      .how-steps { grid-template-columns: repeat(2, 1fr); gap: 48px; }
+      .how-steps::before { display: none; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 250px); }
+      .portfolio-item:first-child { grid-row: span 1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+      .navbar-links { display: none; }
+      .hamburger { display: flex; }
+      .hero { min-height: 600px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .portfolio-item { aspect-ratio: 16/10; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-logo">Lentes <span>da Ana</span></a>
+      <ul class="navbar-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#ensaios">Ensaios</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato" class="navbar-cta">Agendar Ensaio</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileClose">&times;</button>
+    <a href="#sobre" class="mobile-link">Sobre</a>
+    <a href="#ensaios" class="mobile-link">Ensaios</a>
+    <a href="#portfolio" class="mobile-link">Portfólio</a>
+    <a href="#depoimentos" class="mobile-link">Depoimentos</a>
+    <a href="#contato" class="mobile-link">Agendar Ensaio</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-pattern"></div>
+    </div>
+    <div class="hero-content fade-up">
+      <div class="hero-badge">Fotografia &amp; Memórias</div>
+      <h1>Transformando momentos especiais em <em>histórias</em> que você poderá reviver para sempre</h1>
+      <p class="hero-sub">Cada clique carrega uma emoção. Cada foto preserva um pedaço da sua história. Deixe que eu cuide das suas memórias mais preciosas.</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20ensaio%20fotogr%C3%A1fico." class="btn-primary" target="_blank" rel="noopener">
+          <span>Quero Fazer Meu Ensaio</span>
+        </a>
+        <a href="#portfolio" class="btn-secondary">Ver Portfólio</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Explore</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- EMOTIONAL CONNECTION -->
+  <section class="emotional" id="sobre">
+    <div class="container">
+      <div class="emotional-grid">
+        <div class="emotional-text fade-up">
+          <span class="section-badge">Mais do que fotografias</span>
+          <h2 class="section-title">Fotografia não é apenas apertar um botão. É <em>sentir</em> o momento.</h2>
+          <p class="section-desc">Atrás de cada foto existe uma história real. Um olhar que diz tudo sem palavras. Uma abraço que guarda anos de amor. Um sorriso que nunca deveria ser esquecido.</p>
+          <div class="emotional-features">
+            <div class="emotional-feature">
+              <div class="icon">♡</div>
+              <div>
+                <h4>Amor em cada detalhe</h4>
+                <p>Capturar a essência das suas relações, o carinho que define sua família.</p>
+              </div>
+            </div>
+            <div class="emotional-feature">
+              <div class="icon">✦</div>
+              <div>
+                <h4>Momentos que não voltam</h4>
+                <p>A primeira risada, o olhar de orgulho, a ternura de um beijo. Tudo registrado para sempre.</p>
+              </div>
+            </div>
+            <div class="emotional-feature">
+              <div class="icon">◆</div>
+              <div>
+                <h4>Sua história, seu jeito</h4>
+                <p>Cada ensaio é único porque cada pessoa é única. Sua identidade merece ser celebrada.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="emotional-visual scale-in">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=800&fit=crop&crop=faces" alt="Ensaio fotográfico feminino - Lentes da Ana" class="emotional-img-main">
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=400&fit=crop&crop=faces" alt="Momento de conexão - Lentes da Ana" class="emotional-img-overlay">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="ensaios">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">Ensaios Fotográficos</span>
+        <h2 class="section-title">Cada fase da sua vida merece ser <em>eternizada</em></h2>
+        <p class="section-desc">Escolha o ensaio que mais combina com o momento que você está vivendo.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <span class="service-icon">꒰🌷꒱</span>
+          <div class="for-who">Para você</div>
+          <h3>Ensaio Feminino</h3>
+          <p>Um espaço seguro para se sentir linda, poderosa e autêntica. Celebre quem você é, com todas as suas facetas.</p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20ensaio%20feminino." class="service-link" target="_blank" rel="noopener">Solicitar orçamento →</a>
+        </div>
+        <div class="service-card fade-up">
+          <span class="service-icon">꒰💕꒱</span>
+          <div class="for-who">Para casais</div>
+          <h3>Ensaio de Casal</h3>
+          <p>O amor tem muitas linguagens. Vamos capturar a sua, com Fotografia espontânea e cheia de sentimento.</p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20ensaio%20de%20casal." class="service-link" target="_blank" rel="noopener">Solicitar orçamento →</a>
+        </div>
+        <div class="service-card fade-up">
+          <span class="service-icon">꒰🌸꒱</span>
+          <div class="for-who">Futura mamãe</div>
+          <h3>Ensaio Gestante</h3>
+          <p>A maternidade começa antes do nascimento. Registre a expectativa, a alegria e a conexão com seu bebê.</p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20ensaio%20gestante." class="service-link" target="_blank" rel="noopener">Solicitar orçamento →</a>
+        </div>
+        <div class="service-card fade-up">
+          <span class="service-icon">꒰🏠꒱</span>
+          <div class="for-who">Toda a família</div>
+          <h3>Ensaio Família</h3>
+          <p>O abraço coletivo, a bagunça feliz, o amor que transborda. Sua família merece ser retratada assim.</p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20ensaio%20fam%C3%ADlia." class="service-link" target="_blank" rel="noopener">Solicitar orçamento →</a>
+        </div>
+        <div class="service-card fade-up">
+          <span class="service-icon">꒰🧸꒱</span>
+          <div class="for-who">Seu pequeno</div>
+          <h3>Ensaio Infantil</h3>
+          <p>A inocência, o brilho nos olhos, as travessuras. Moments que você vai querer reviver para sempre.</p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20ensaio%20infantil." class="service-link" target="_blank" rel="noopener">Solicitar orçamento →</a>
+        </div>
+        <div class="service-card fade-up">
+          <span class="service-icon">꒰🎂꒱</span>
+          <div class="for-who">Celebrações</div>
+          <h3>Aniversários &amp; Eventos</h3>
+          <p>De 15 anos a formaturas, de bodas a encontros. Cada celebração merece ser registrada com emoção.</p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20evento." class="service-link" target="_blank" rel="noopener">Solicitar orçamento →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="why" id="diferenciais">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">Por que a Lentes da Ana?</span>
+        <h2 class="section-title">Uma experiência pensada em <em>você</em></h2>
+        <p class="section-desc">Não basta apenas tirar fotos bonitas. O diferencial está na experiência completa.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item fade-up">
+          <div class="why-number">01</div>
+          <h4>Atendimento Personalizado</h4>
+          <p>Antes do ensaio, conversamos para entender sua personalidade, seu estilo e o que faz seu coração bater mais forte.</p>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-number">02</div>
+          <h4>Direção Durante o Ensaio</h4>
+          <p>Não sabe posar? Fique tranquila. Vou te guiar em cada pose, cada olhar, cada momento. O resultado será natural.</p>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-number">03</div>
+          <h4>Fotos Naturais e Espontâneas</h4>
+          <p>Esqueça as poses engessadas. Meu objetivo é capturar você sendo autêntica, com emoção real.</p>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-number">04</div>
+          <h4>Cuidado em Cada Detalhe</h4>
+          <p>Da escolha do local ao tratamento final das imagens. Cada detalhe é pensado para superar suas expectativas.</p>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-number">05</div>
+          <h4>Conforto Total</h4>
+          <p>Um ambiente acolhedor e seguro, onde você pode se soltar e ser você mesma, sem julgamentos.</p>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-number">06</div>
+          <h4>Resultados Emocionantes</h4>
+          <p>Não são apenas fotos. São emoções congeladas no tempo. Imagens que tiram lágrimas e trazem sorrisos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">Portfólio</span>
+        <h2 class="section-title">Cada foto conta uma <em>história</em></h2>
+      </div>
+      <div class="portfolio-grid scale-in">
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop" alt="Ensaio feminino - Lentes da Ana" loading="lazy">
+          <div class="portfolio-overlay"><span>Ensaio Feminino</span></div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&h=350&fit=crop" alt="Ensaio de casal - Lentes da Ana" loading="lazy">
+          <div class="portfolio-overlay"><span>Ensaio de Casal</span></div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=350&fit=crop&crop=faces" alt="Retrato emocional - Lentes da Ana" loading="lazy">
+          <div class="portfolio-overlay"><span>Retrato Emocional</span></div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500&h=350&fit=crop" alt="Ensaio gestante - Lentes da Ana" loading="lazy">
+          <div class="portfolio-overlay"><span>Ensaio Gestante</span></div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=500&h=350&fit=crop&crop=faces" alt="Ensaio familiar - Lentes da Ana" loading="lazy">
+          <div class="portfolio-overlay"><span>Ensaio Família</span></div>
+        </div>
+      </div>
+      <p class="portfolio-quote fade-up">"A câmera é uma ferramenta. A emoção é o que faz a foto ser eterna."</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">Depoimentos</span>
+        <h2 class="section-title">O que nossos clientes <em>dizem</em></h2>
+        <p class="section-desc">A satisfação de quem viveu a experiência é a nossa maior conquista.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p class="testimonial-text">"Eu estava super nervosa, mas a Ana me fez sentir tão à vontade que esqueci que estava sendo fotografada. As fotos ficaram incríveis, parecem saídas de uma revista. Chorei quando vi!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <div class="testimonial-name">Juliana Mendes</div>
+              <div class="testimonial-service">Ensaio Feminino</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p class="testimonial-text">"Fizemos o ensaio de gestante e foi mágico. A Ana tem um dom especial para capturar a emoção. Minhas fotos de grávida são as mais bonitas que já vi. Recomendo de olhos fechados!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <div class="testimonial-name">Camila Santos</div>
+              <div class="testimonial-service">Ensaio Gestante</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p class="testimonial-text">"Meu marido relutou no começo, mas depois ficou encantado. A Ana conseguiu retratar a conexão entre nós de um jeito que nunca tinhamos visto. As fotos são我们的 tesouros."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <div class="testimonial-name">Renata Oliveira</div>
+              <div class="testimonial-service">Ensaio de Casal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="como-funciona">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">Como Funciona</span>
+        <h2 class="section-title">Simples, <em>emocionante</em> e sem complicação</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step fade-up">
+          <div class="how-step-number"><span>1</span></div>
+          <h4>Entre em Contato</h4>
+          <p>Chame no WhatsApp e conte o que você imagina para o seu ensaio.</p>
+        </div>
+        <div class="how-step fade-up">
+          <div class="how-step-number"><span>2</span></div>
+          <h4>Planejamento</h4>
+          <p>Juntos escolhemos o local, as roupas e o estilo que combina com você.</p>
+        </div>
+        <div class="how-step fade-up">
+          <div class="how-step-number"><span>3</span></div>
+          <h4>O Ensaio</h4>
+          <p>Um momento divertido e especial. Você se solta e eu cuido do resto.</p>
+        </div>
+        <div class="how-step fade-up">
+          <div class="how-step-number"><span>4</span></div>
+          <h4>Suas Memórias</h4>
+          <p>Receba suas fotos editadas e reviva aquela emoção para sempre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contato">
+    <div class="cta-bg"></div>
+    <div class="cta-content container fade-up">
+      <span class="section-badge">Pronta para começar?</span>
+      <h2 class="section-title">Seu momento merece ser registrado do jeito que você sempre <em>imaginou</em></h2>
+      <p class="section-desc">Não deixe para depois os momentos que não voltam. Entre em contato agora e vamos criar algo lindo juntas.</p>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20ensaio%20fotogr%C3%A1fico." class="cta-btn" target="_blank" rel="noopener">
+        Solicitar Orçamento pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">Dúvidas</span>
+        <h2 class="section-title">Perguntas <em>frequentes</em></h2>
+      </div>
+      <div class="faq-list fade-up">
+        <div class="faq-item">
+          <button class="faq-question">
+            Nunca fiz ensaio, vou saber posar?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Claro! Grande parte das minhas clientes nunca fez um ensaio antes. Eu vou te direcionar durante toda a sessão, te mostrar as poses, os ângulos e principalmente te fazer se sentir à vontade. O resultado sempre é natural e espontâneo.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Como funciona o agendamento?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>É muito simples! Basta entrar em contato pelo WhatsApp, conversamos sobre o tipo de ensaio, escolhemos a data e o local. Tudo de forma prática e personalizada.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Quanto tempo dura o ensaio?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>A duração varia conforme o tipo de ensaio, mas em média os ensaios duram entre 1 a 2 horas. Isso garante tempo suficiente para trocar de roupa, mudar de cenário e capturar diferentes facetas.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Recebo todas as fotos?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você receberá todas as fotos do ensaio, já tratadas e editadas com todo cuidado. A entrega é feita em galeria online de alta resolução, pronta para impressão e compartilhamento.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Vocês fazem fotos externas?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Adoro ensaios ao ar livre. Parques, praias, ruas charmosas... Podemos escolher um local que tenha significado para você ou que combine com a vibe do ensaio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="navbar-logo">Lentes <span>da Ana</span></a>
+          <p>Transformando momentos especiais em memórias eternas. Fotografia profissional com emoção e autenticidade.</p>
+        </div>
+        <div>
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#ensaios">Ensaios</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Ensaios</h5>
+          <ul>
+            <li><a href="#ensaios">Feminino</a></li>
+            <li><a href="#ensaios">Casal</a></li>
+            <li><a href="#ensaios">Gestante</a></li>
+            <li><a href="#ensaios">Família</a></li>
+            <li><a href="#ensaios">Infantil</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contato</h5>
+          <ul>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com/lentesdaanaoficial" target="_blank" rel="noopener">@lentesdaanaoficial</a></li>
+            <li><a href="#">Localização</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Lentes da Ana. Todos os direitos reservados.</span>
+        <div class="footer-social">
+          <a href="https://instagram.com/lentesdaanaoficial" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING -->
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20ensaio%20fotogr%C3%A1fico." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="whatsapp-tooltip">Fale comigo no WhatsApp!</div>
+  </a>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('active'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-up, .fade-in, .scale-in').forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: position, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
